@@ -1,0 +1,32 @@
+[
+  {
+    "model": "blog.post",
+    "pk": 1,
+    "fields": {
+      "title": "¡Bienvenida al Dev Blog! 👩‍💻",
+      "content": "Este es tu primer post de práctica. ¡Ya tienes el ambiente funcionando!\n\nEn la Misión 6 vas a modificar las plantillas HTML para cambiar cómo se ve esta página.\n\nRecuerda el flujo de trabajo:\n1. Edita el código en VSCode\n2. Guarda con Ctrl+S\n3. Recarga el navegador\n4. git add . → commit → push\n\n¡Bienvenida al equipo!",
+      "author": "El Equipo",
+      "published": true
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 2,
+    "fields": {
+      "title": "Cómo funciona este proyecto",
+      "content": "Este proyecto usa tres tecnologías principales:\n\nDjango — el framework web. Genera las páginas, maneja los formularios y habla con la base de datos.\n\nPostgreSQL — la base de datos. Guarda todos los posts, usuarios y datos de la app de forma permanente.\n\nDocker — el contenedor. Empaqueta todo junto para que funcione igual en cualquier computador.\n\nEl flujo de una petición:\n1. Tú escribes localhost:8000 en el navegador\n2. Docker recibe la petición y la pasa al contenedor web\n3. Django busca la URL en urls.py\n4. Ejecuta la función en views.py\n5. La función consulta la base de datos\n6. Django renderiza el HTML con los datos\n7. Tu navegador muestra la página",
+      "author": "El Equipo",
+      "published": true
+    }
+  },
+  {
+    "model": "blog.post",
+    "pk": 3,
+    "fields": {
+      "title": "Tu misión: ¡modifica este blog!",
+      "content": "Estas son algunas cosas que puedes intentar para practicar:\n\n🟢 Fácil:\n- Cambiar el título en templates/blog/index.html\n- Cambiar los colores en el CSS de base.html\n- Crear nuevos posts desde el panel admin\n\n🟡 Medio:\n- Agregar un campo 'category' al modelo Post\n- Crear una página que muestre posts por autor\n- Agregar paginación a la lista de posts\n\n🔴 Desafío:\n- Agregar un sistema de comentarios\n- Implementar búsqueda de posts\n- Agregar imágenes a los posts\n\n¡No tengas miedo de romper cosas! Para eso están las ramas de Git.",
+      "author": "El Equipo",
+      "published": true
+    }
+  }
+]

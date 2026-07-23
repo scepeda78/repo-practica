@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dev Blog{% endblock %}</title>
+    <style>
+        /* ===== ESTILOS BASE =====
+           ¡MISIÓN: Modifica estos estilos para personalizar el blog!
+           Cambia colores, fuentes, espaciado... lo que quieras. */
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f6f8fa;
+            color: #24292f;
+            line-height: 1.6;
+        }
+
+        /* Barra de navegación */
+        nav {
+            background: #24292f;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            height: 56px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a.brand {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover { color: white; }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Tarjeta de post */
+        .post-card {
+            background: white;
+            border: 1px solid #d0d7de;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 20px;
+            transition: box-shadow 0.2s;
+        }
+
+        .post-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .post-card h2 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .post-card h2 a {
+            color: #0969da;
+            text-decoration: none;
+        }
+
+        .post-card h2 a:hover { text-decoration: underline; }
+
+        .meta {
+            color: #656d76;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .post-card p {
+            color: #24292f;
+            font-size: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 14px;
+            color: #0969da;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .read-more:hover { text-decoration: underline; }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            background: #0969da;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .btn:hover { background: #0860ca; }
+
+        /* Artículo completo */
+        article .content {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #0969da;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 32px;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        /* Empty state */
+        .empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: #656d76;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="brand">📝 Dev Blog</a>
+        <a href="/admin">Panel Admin</a>
+    </nav>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

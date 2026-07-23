@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-devquest_db}
+      POSTGRES_USER: ${POSTGRES_USER:-devquest_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-devquest_pass}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-devquest_user}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py loaddata blog/fixtures/initial_data.json &&
+             DJANGO_SUPERUSER_USERNAME=admin
+             DJANGO_SUPERUSER_PASSWORD=admin123
+             DJANGO_SUPERUSER_EMAIL=admin@devquest.com
+             python manage.py createsuperuser --noinput 2>/dev/null || true &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

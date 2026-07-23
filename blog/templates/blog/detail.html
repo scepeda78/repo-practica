@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}{{ post.title }} — Dev Blog{% endblock %}
+
+{% block content %}
+
+<article>
+    <h1 style="font-size: 32px; font-weight: 800; letter-spacing: -0.8px; margin-bottom: 10px;">
+        {{ post.title }}
+    </h1>
+    <p class="meta">
+        ✍️ {{ post.author }} &nbsp;·&nbsp; {{ post.created_at|date:"d \d\e F \d\e Y" }}
+    </p>
+
+    <div class="content" style="background: white; border: 1px solid #d0d7de; border-radius: 12px; padding: 28px 32px; margin-top: 20px;">
+        {{ post.content|linebreaks }}
+    </div>
+
+    <a href="{% url 'index' %}" class="back-link">← Volver al inicio</a>
+</article>
+
+{% endblock %}
